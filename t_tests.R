@@ -16,13 +16,13 @@ a_year$logEmis<-log10(a_year$Emissions)
 vysl<-data.frame()
 
 #Start with descriptive statistics - year and type, and sum, mean and median for log10(Emissions):
-b<-aggregate(Emissions ~ year + type, a_year, sum)
+b<-aggregate(logEmis ~ year + type, a_year, sum)
 vysl<-b
 names(vysl)[3]<- "sum"
-b<-aggregate(Emissions ~ year + type, a_year, mean)
+b<-aggregate(logEmis ~ year + type, a_year, mean)
 vysl<-cbind(vysl, b[3])
 names(vysl)[4]<- "mean"
-b<-aggregate(Emissions ~ year + type, a_year, median)
+b<-aggregate(logEmis ~ year + type, a_year, median)
 vysl<-cbind(vysl, b[3])
 names(vysl)[5]<- "median"
 vysl
